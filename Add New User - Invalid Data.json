@@ -1,0 +1,113 @@
+[
+  {
+    "InputUsername": "honeymonster@sesamestreet.com",
+    "InputName": "Empty",
+	"InputSurname": "Password",
+	"InputEmail": "honeymonster@sesamestreet.com",
+	"InputPassword": "",
+	"InputTeam": "3",
+	"InputRole": "1",
+	"ResponseText": "'Password' must not be empty."
+  },
+
+  {
+    "InputUsername": "",
+    "InputName": "Irvine",
+	"InputSurname": "Welsh",
+	"InputEmail": "honeymonster@sesamestreet.com",
+	"InputPassword": ")*akX{WeyCTb7Rr",
+	"InputTeam": "3",
+	"InputRole": "1",
+	"ResponseText": "'Username' must not be empty."
+  },
+    {
+    "InputUsername": "honeymonster@sesamestreet.com",
+    "InputName": "ABCDEFGHIJABCDEFGHIJABCDEFGHIJABCDEFGHIJABCDEFGHIJk",
+	"InputSurname": "Long Name",
+	"InputEmail": "honeymonster@sesamestreet.com",
+	"InputPassword": ")*akX{WeyCTb7Rr",
+	"InputTeam": "3",
+	"InputRole": "1",
+	"ResponseText": "'Name' must be 50 characters or fewer"
+  },
+  {
+    "InputUsername": "honeymonster@sesamestreet.com",
+    "InputName": "",
+	"InputSurname": "Empty Name",
+	"InputEmail": "honeymonster@sesamestreet.com",
+	"InputPassword": ")*akX{WeyCTb7Rr",
+	"InputTeam": "3",
+	"InputRole": "1",
+	"ResponseText": "'Name' must not be empty."
+  },
+  {
+    "InputUsername": "honeymonster@sesamestreet.com",
+    "InputName": "Empty Surname",
+	"InputSurname": "",
+	"InputEmail": "honeymonster@sesamestreet.com",
+	"InputPassword": ")*akX{WeyCTb7Rr",
+	"InputTeam": "3",
+	"InputRole": "1",
+	"ResponseText": "'Surname' must not be empty."
+  },
+  {
+    "InputUsername": "honeymonster@sesamestreet.com",
+    "InputName": "",
+	"InputSurname": "ABCDEFGHIJABCDEFGHIJABCDEFGHIJABCDEFGHIJABCDEFGHIJk",
+	"InputEmail": "honeymonster@sesamestreet.com",
+	"InputPassword": ")*akX{WeyCTb7Rr",
+	"InputTeam": "3",
+	"InputRole": "1",
+	"ResponseText": "'Surname' must be 50 characters or fewer"
+  },
+    {
+    "InputUsername": "honeymonster@sesamestreet.com",
+    "InputName": "Peter",
+	"InputSurname": "Higgs Boson",
+	"InputEmail": "",
+	"InputPassword": ")*akX{WeyCTb7Rr",
+	"InputTeam": "3",
+	"InputRole": "1",
+	"ResponseText": "'Email' must not be empty."
+  },
+	{
+    "InputUsername": "honeymonster@sesamestreet.com",
+    "InputName": "Peter",
+	"InputSurname": "Higgs Boson",
+	"InputEmail": "honeymonster@sesamestreet.com",
+	"InputPassword": ")*akX{WeyCTb7Rr",
+	"InputTeam": "",
+	"InputRole": "1",
+	"ResponseText": "'Id Team' must be greater than '0'"
+  },
+  	{
+    "InputUsername": "honeymonster@sesamestreet.com",
+    "InputName": "Peter",
+	"InputSurname": "Higgs Boson",
+	"InputEmail": "honeymonster@sesamestreet.com",
+	"InputPassword": ")*akX{WeyCTb7Rr",
+	"InputTeam": "666",
+	"InputRole": "1",
+	"ResponseText": "'IdTeam' specified not exists"
+  },
+    	{
+    "InputUsername": "honeymonster@sesamestreet.com",
+    "InputName": "Peter",
+	"InputSurname": "Higgs Boson",
+	"InputEmail": "honeymonster@sesamestreet.com",
+	"InputPassword": ")*akX{WeyCTb7Rr",
+	"InputTeam": "666",
+	"InputRole": "",
+	"ResponseText": "'Id Role' must be greater than '0'"
+  },
+      	{
+    "InputUsername": "honeymonster@sesamestreet.com",
+    "InputName": "Peter",
+	"InputSurname": "Higgs Boson",
+	"InputEmail": "honeymonster@sesamestreet.com",
+	"InputPassword": ")*akX{WeyCTb7Rr",
+	"InputTeam": "3",
+	"InputRole": "666",
+	"ResponseText": "'IdRole' specified not exists"
+  }
+]

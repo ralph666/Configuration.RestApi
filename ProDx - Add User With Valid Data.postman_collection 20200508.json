@@ -1,0 +1,678 @@
+{
+	"info": {
+		"_postman_id": "2fe91a1c-f0aa-4e13-86f5-d3ff172705ce",
+		"name": "ProDx - Add User With Valid Data",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add A New User With Valid Data",
+			"item": [
+				{
+					"name": "Creates a New Distributor User With Input Data",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "d61b70b9-ae34-4958-9f56-62d5877b63f5",
+								"exec": [
+									"var email_variable = postman.getGlobalVariable(\"ProDxVariable\");\r",
+									"\r",
+									"console.log(email_variable);\r",
+									"\r",
+									"let email_number = (Number(email_variable)) + 1;\r",
+									"\r",
+									"//console.log(email_number);\r",
+									"\r",
+									"pm.globals.set(\"ProDxVariable\", email_number);\r",
+									"\r",
+									"var sigString = postman.getGlobalVariable(\"ProDxEmailPt1\") + postman.getGlobalVariable(\"ProDxVariable\") + postman.getGlobalVariable(\"ProDxEmailPt2\");\r",
+									"\r",
+									"postman.setGlobalVariable(\"ProDxEmail\", sigString);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "4287cf29-52d4-4874-8c96-9e3c88ca30a4",
+								"exec": [
+									"request_name = pm.info.requestName;",
+									"console.log(request_name),",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Email is correct'\", function () {",
+									"    pm.expect(pm.response.text()).to.include(postman.getGlobalVariable(\"ProDxEmail\"));",
+									"});",
+									"",
+									"pm.test(\"Body contains correct name\", function () {",
+									"    ",
+									"    pm.expect(pm.response.text()).to.include(pm.iterationData.get(\"InputName\"));",
+									"    ",
+									"    // older syntax still works too: with dot or bracket notation",
+									"    pm.expect(pm.response.text()).to.include(data.InputName); ",
+									"    console.log(\"Name to be added \" + data[\"InputName\"]); ",
+									"});",
+									"",
+									"pm.test(\"Body contains correct surname\", function () {",
+									"    ",
+									"    pm.expect(pm.response.text()).to.include(pm.iterationData.get(\"InputSurname\"));",
+									"    ",
+									"    // older syntax still works too: with dot or bracket notation",
+									"    pm.expect(pm.response.text()).to.include(data.InputSurname); ",
+									"    console.log(\"Name to be added \" + data[\"InputSurname\"]); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Username",
+									"value": "{{ProDxEmail}}"
+								},
+								{
+									"key": "Name",
+									"value": "{{InputName}}"
+								},
+								{
+									"key": "Surname",
+									"value": "{{InputSurname}}"
+								},
+								{
+									"key": "Email",
+									"value": "{{ProDxEmail}}"
+								},
+								{
+									"key": "Base64Image",
+									"value": "<string>",
+									"disabled": true
+								},
+								{
+									"key": "Password",
+									"value": "{{ProDxNewUserPassword}}"
+								},
+								{
+									"key": "IdTeam",
+									"value": "{{ProDxTeam}}"
+								},
+								{
+									"key": "IdRole",
+									"value": "{{ProDxRole}}"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Ok, new user data",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "Username",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "Name",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "Surname",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "Email",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "Base64Image",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "Password",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "IdTeam",
+											"value": "<integer>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "IdRole",
+											"value": "<integer>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"Id\": \"<integer>\",\n \"Username\": \"<string>\",\n \"Name\": \"<string>\",\n \"Surname\": \"<string>\",\n \"Email\": \"<string>\",\n \"Base64Image\": \"<string>\",\n \"IdTeam\": \"<integer>\",\n \"IdRole\": \"<integer>\"\n}"
+						},
+						{
+							"name": "BadRequest, with detailed error data",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "Username",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "Name",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "Surname",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "Email",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "Base64Image",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "Password",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "IdTeam",
+											"value": "<integer>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "IdRole",
+											"value": "<integer>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Create New Distributor User with Name & Surname Containing Common Delimeters",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5751ebe2-ec53-4a94-9de6-dc4f3b2d15ff",
+								"exec": [
+									"var email_variable = postman.getGlobalVariable(\"ProDxVariable\");\r",
+									"\r",
+									"console.log(email_variable);\r",
+									"\r",
+									"let email_number = (Number(email_variable)) + 1;\r",
+									"\r",
+									"console.log(email_number);\r",
+									"\r",
+									"pm.globals.set(\"ProDxVariable\", email_number);\r",
+									"\r",
+									"var sigString = postman.getGlobalVariable(\"ProDxEmailPt1\") + postman.getGlobalVariable(\"ProDxVariable\") + postman.getGlobalVariable(\"ProDxEmailPt2\");\r",
+									"\r",
+									"postman.setGlobalVariable(\"ProDxEmail\", sigString);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "281afe6c-d809-4e20-ae4f-378dafa42bb9",
+								"exec": [
+									"request_name = pm.info.requestName;",
+									"console.log(request_name)",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Email is correct'\", function () {",
+									"    pm.expect(pm.response.text()).to.include(postman.getGlobalVariable(\"ProDxEmail\"));",
+									"});",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Username",
+									"value": "{{ProDxEmail}}"
+								},
+								{
+									"key": "Name",
+									"value": "“ ‘ ` | / \\ , ; : & < > ^ * ?"
+								},
+								{
+									"key": "Surname",
+									"value": "“ ‘ ` | / \\ , ; : & < > ^ * ?"
+								},
+								{
+									"key": "Email",
+									"value": "{{ProDxEmail}}"
+								},
+								{
+									"key": "Base64Image",
+									"value": "<string>",
+									"disabled": true
+								},
+								{
+									"key": "Password",
+									"value": "{{ProDxNewUserPassword}}"
+								},
+								{
+									"key": "IdTeam",
+									"value": "{{ProDxTeam}}"
+								},
+								{
+									"key": "IdRole",
+									"value": "{{ProDxRole}}"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "BadRequest, with detailed error data",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "Username",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "Name",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "Surname",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "Email",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "Base64Image",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "Password",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "IdTeam",
+											"value": "<integer>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "IdRole",
+											"value": "<integer>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Ok, new user data",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "Username",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "Name",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "Surname",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "Email",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "Base64Image",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "Password",
+											"value": "<string>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "IdTeam",
+											"value": "<integer>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										},
+										{
+											"key": "IdRole",
+											"value": "<integer>",
+											"description": {
+												"content": "",
+												"type": "text/plain"
+											}
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"Id\": \"<integer>\",\n \"Username\": \"<string>\",\n \"Name\": \"<string>\",\n \"Surname\": \"<string>\",\n \"Email\": \"<string>\",\n \"Base64Image\": \"<string>\",\n \"IdTeam\": \"<integer>\",\n \"IdRole\": \"<integer>\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "3c87afe3-838a-408a-932d-c4354b2dabc1",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d391e566-72f6-4cf7-abb0-a428a1903016",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "e4afe691-65d3-4372-ae4b-eae631446b2f",
+			"key": "baseUrl",
+			"value": "https://prodxconfigurationtest.werfen.com",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
