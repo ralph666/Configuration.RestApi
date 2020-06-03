@@ -1,0 +1,139 @@
+{
+	"id": "f5ed52bd-6090-496d-83c3-14345c51f5ea",
+	"values": [
+		{
+			"key": "ProDxTeam",
+			"value": "3",
+			"enabled": true
+		},
+		{
+			"key": "ProDxEmptyTeam",
+			"value": "1004",
+			"enabled": true
+		},
+		{
+			"key": "ProDxNotExistsTeam",
+			"value": "666",
+			"enabled": true
+		},
+		{
+			"key": "ProDxNewUserPassword",
+			"value": "C0ronav!rus",
+			"enabled": true
+		},
+		{
+			"key": "ProDxEmailPt1",
+			"value": "rasputin",
+			"enabled": true
+		},
+		{
+			"key": "ProDxRole",
+			"value": "2",
+			"enabled": true
+		},
+		{
+			"key": "ProDxEmailPt2",
+			"value": "@winterpalace.com",
+			"enabled": true
+		},
+		{
+			"key": "ProDxEmail",
+			"value": "rasputin655@winterpalace.com",
+			"enabled": true
+		},
+		{
+			"key": "ProDxVariable",
+			"value": 655,
+			"enabled": true
+		},
+		{
+			"key": "ProDxUpdatedUserId",
+			"value": "2816",
+			"enabled": true
+		},
+		{
+			"key": "ProDxUpdateUserName",
+			"value": "^M Team name ^M",
+			"enabled": true
+		},
+		{
+			"key": "ProDxUpdateUserSurname",
+			"value": "^M Team name ^M",
+			"enabled": true
+		},
+		{
+			"key": "ProDxRoleUpdate",
+			"value": "1",
+			"enabled": true
+		},
+		{
+			"key": "ProDxTeamNoSites",
+			"value": "1005",
+			"enabled": true
+		},
+		{
+			"key": "ProDxUserNames",
+			"value": "AsdBsd, asd123, 123456, 123asd, asdfghjklzxcvbnmqwertyuio",
+			"enabled": true
+		},
+		{
+			"key": "ProDxTeanNoSites",
+			"value": "1004",
+			"enabled": true
+		},
+		{
+			"key": "ProDxNewUserId",
+			"value": 3145,
+			"enabled": true
+		},
+		{
+			"key": "ProDxDeleteSite",
+			"value": "12",
+			"enabled": true
+		},
+		{
+			"key": "ProDxUserIdForUpdates",
+			"value": "15",
+			"enabled": true
+		},
+		{
+			"key": "auth",
+			"value": "24ee3ec8079ec5c40368b6cf80a063f3",
+			"enabled": true
+		},
+		{
+			"key": "authManagerTeam3",
+			"value": "9b5ea30b4ebbc881fe1878029c3093fc",
+			"enabled": true
+		},
+		{
+			"key": "authManagerTeam2",
+			"value": "d7d27557434e7a19b9f25e0140c0c32a",
+			"enabled": true
+		},
+		{
+			"key": "authNormalUserTeam3",
+			"value": "a45ba78e8f10d3bb7443a712696c079b",
+			"enabled": true
+		},
+		{
+			"key": "authralph",
+			"value": "ac25d295caee02c29516d0c9b491c129",
+			"enabled": true
+		},
+		{
+			"key": "ProDxNormalUserId",
+			"value": 3136,
+			"enabled": true
+		},
+		{
+			"key": "authNormalUserTeam2",
+			"value": "e593e9f592181877322d1fdf381cbe04",
+			"enabled": true
+		}
+	],
+	"name": "My Workspace Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2020-06-03T05:59:02.107Z",
+	"_postman_exported_using": "Postman/7.25.0"
+}
